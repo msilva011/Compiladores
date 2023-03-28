@@ -1,16 +1,17 @@
-all: main
+CC=gcc
+CFLAGS=-Wall -Wextra -std=c99 -pedantic
 
-CC = clang
-override CFLAGS += -g -Wno-everything -pthread -lm
+.PHONY: all build clean run
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.c' -print)
-HEADERS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.h' -print)
+all: build
 
-main: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) $(SRCS) -o "$@"
+build: tokens
 
-main-debug: $(SRCS) $(HEADERS)
-	$(CC) $(CFLAGS) -O0 $(SRCS) -o "$@"
+tokens: tokens.c
+	$(CC) $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f main main-debug
+	rm -f tokens
+
+run: tokens
+	./tokens
