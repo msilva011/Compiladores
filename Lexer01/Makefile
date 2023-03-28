@@ -1,17 +1,15 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -std=c99 -pedantic
+CFLAGS=-Wall
 
-.PHONY: all build clean run
+all: build run
 
-all: build
+build: main
 
-build: tokens
+main: main.c
+	$(CC) $(CFLAGS) main.c -o main
 
-tokens: tokens.c
-	$(CC) $(CFLAGS) -o $@ $<
+run:
+	./main
 
 clean:
-	rm -f tokens
-
-run: tokens
-	./tokens
+	rm -f main
