@@ -4,4 +4,4 @@ Este código é um programa em C que lê um arquivo de entrada chamado "input.tx
 
 ## Referência:
 
-- Replit: https://replit.com/@mayaraborges/Lexer01
+- Replit: https://replit.com/@mayaraborges/Lexer

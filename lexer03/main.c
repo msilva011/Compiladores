@@ -5,7 +5,6 @@
 // possíveis operações matemáticas  
 enum Token { Mais, Subtracao, Multiplicacao, Divisao, Potenciacao, Indeterminado };
 
-
 //estrutura de dados para armazenar um único nó em uma lista encadeada de tokens
 struct TokenList {
   enum Token token;
@@ -89,7 +88,7 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  // buffer de caracteres usado para armazenar cada linha do       arquivo de entrada 
+  // buffer de caracteres usado para armazenar cada linha do arquivo de entrada 
   char buffer[1024];
   
   //ponteiro para o primeiro nó
