@@ -3,7 +3,7 @@
 #include <string.h>
 
 // possíveis operações matemáticas  
-enum Token { Mais, Subtracao, Multiplicacao, Divisao, Potenciacao, Indeterminado };
+enum Token { Mais, Subtracao, Multiplicacao, Divisao, Potenciacao, Indeterminado,Numero };
 
 //estrutura de dados para armazenar um único nó em uma lista encadeada de tokens
 struct TokenList {
@@ -27,6 +27,11 @@ void adicionar_token(enum Token token, struct TokenList **tokens) //ponteiro dup
     temp->next = node;
   }
 }
+//verifica se um caractere é um dígito
+int eh_digito(char c) {
+  return c >= '0' && c <= '9';
+}
+
 //percorre uma string de entrada caractere por caractere e adiciona um novo token à lista de tokens
 void usar_token(char *sinalizador, struct TokenList **tokens) {
   *tokens = NULL;
@@ -45,12 +50,27 @@ void usar_token(char *sinalizador, struct TokenList **tokens) {
       }
     } else if (*sinalizador == '/') {
       adicionar_token(Divisao, tokens);
+    } else if (eh_digito(*sinalizador)) {
+      int ponto = 0;
+      char numero[1024] = "";
+      int i = 0;
+      while (eh_digito(*sinalizador) || (*sinalizador == '.' && !ponto)) {
+        if (*sinalizador == '.') {
+          ponto = 1;
+        }
+        numero[i] = *sinalizador;
+        sinalizador++;
+        i++;
+      }
+      adicionar_token(Numero, tokens);
+      printf("%s\n", numero);
     } else if (*sinalizador != ' ') {
       adicionar_token(Indeterminado, tokens);
     }
     sinalizador++;
   }
 }
+
 
 //recebe um ponteiro para o primeiro nó de uma lista de tokens e imprime cada token na lista
 void imprimir_tokens(struct TokenList *tokens) {
