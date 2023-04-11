@@ -83,7 +83,7 @@ void imprimir_tokens(struct TokenList *tokens) {
 }
 
 int main(int argc, char *argv[]) {
-  FILE *fp = fopen("input.txt", "r");
+  FILE *fp = fopen(argv[0], "r");
   if (fp == NULL) {
     printf("Erro ao abrir arquivo\n");
     return 1;
