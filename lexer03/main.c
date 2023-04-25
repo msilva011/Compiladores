@@ -99,10 +99,11 @@ void imprimir_tokens(struct TokenList *tokens) {
     tokens = tokens->next;
   }
   printf("\n");
+
 }
 
 int main(int argc, char *argv[]) {
-  FILE *fp = fopen(argv[0], "r");
+  FILE *fp = fopen(argv[1], "r");
   if (fp == NULL) {
     printf("Erro ao abrir arquivo\n");
     return 1;
@@ -118,7 +119,7 @@ int main(int argc, char *argv[]) {
     usar_token(buffer, &tokens);
     imprimir_tokens(tokens);
   }
-
+  
   fclose(fp);
   return 0;
 }
