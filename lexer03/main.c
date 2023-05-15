@@ -102,6 +102,15 @@ void imprimir_tokens(struct TokenList *tokens) {
 
 }
 
+void liberar_memoria(struct TokenList *tokens) {
+  struct TokenList *temp;
+  while (tokens != NULL) {
+    temp = tokens;
+    tokens = tokens->next;
+    free(temp);
+  }
+}
+
 int main(int argc, char *argv[]) {
   FILE *fp = fopen(argv[1], "r");
   if (fp == NULL) {
@@ -120,6 +129,7 @@ int main(int argc, char *argv[]) {
     imprimir_tokens(tokens);
   }
   
+  liberar_memoria(tokens);
   fclose(fp);
   return 0;
 }
