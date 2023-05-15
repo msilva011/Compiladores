@@ -71,7 +71,6 @@ void usar_token(char *sinalizador, struct TokenList **tokens) {
   }
 }
 
-
 //recebe um ponteiro para o primeiro nó de uma lista de tokens e imprime cada token na lista
 void imprimir_tokens(struct TokenList *tokens) {
   printf("\nIdentificação dos Tokens:\n\n");
