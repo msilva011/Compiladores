@@ -1,0 +1,16 @@
+
+42   // Número mágico
+00   // Valor inicial do Acumulador
+00   // Valor inicial do PC
+
+// Payload
+20 02 // ADD memória 02
+70 08 // JN salto posição de memória 08 se Acumulador é negativo
+00 0A // STA posição de memória 0A
+F0    // HLT
+
+// Dados
+00    
+FF
+05    
+00    
