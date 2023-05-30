@@ -1,3 +1,5 @@
+// https://www.youtube.com/watch?v=21Vcdmne7n8
+
 #include <stdio.h>
 #include <stdlib.h>
 
