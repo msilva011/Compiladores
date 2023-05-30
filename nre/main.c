@@ -65,8 +65,9 @@ void executeNeander(NeanderState *state)
       break;
     case 0xF0: // HLT
       return;
+      // tratamento para erro pego do stack
     default:
-      printf("Invalid instruction: %02X\n", instruction);
+      printf("Instrucao nao reconhecida: %02X\n", instruction);
       return;
     }
   }
